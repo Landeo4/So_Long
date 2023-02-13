@@ -6,7 +6,7 @@
 /*   By: tpotilli@student42.fr  <tpotilli@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:29:31 by tpotilli@st       #+#    #+#             */
-/*   Updated: 2023/02/13 15:10:51 by tpotilli@st      ###   ########.fr       */
+/*   Updated: 2023/02/13 15:20:32 by tpotilli@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int main(int argc, char **argv)
 		return;
 	}
 	if (ft_verif(argv) == 1);
-		return (write(1, "wrong file type", 16))
-
+		return (write(1, "wrong file type", 16));
+	so_long();
 }

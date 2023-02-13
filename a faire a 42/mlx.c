@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpotilli@student42.fr  <tpotilli@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 13:03:33 by tpotilli@st       #+#    #+#             */
-/*   Updated: 2023/02/13 15:32:21 by tpotilli@st      ###   ########.fr       */
+/*   Created: 2023/02/13 15:29:32 by tpotilli@st       #+#    #+#             */
+/*   Updated: 2023/02/13 15:39:23 by tpotilli@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <mlx.h>
-
-typedef struct s_game
+void ft_mlx()
 {
-	int	i;
-}	t_game;
-
-int	ft_strlen(char *s);
-int main(int argc, char **argv);
-int	ft_map_error(char *nom);
-
-#endif
+	void *mlx_ptr;
+	void *win_ptr;
+	
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window( mlx_ptr, 500, 500, "mlx test");
+	mlx_loop(mlx_ptr);
+}
