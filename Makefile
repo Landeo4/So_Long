@@ -6,11 +6,17 @@
 #    By: tpotilli@student42.fr  <tpotilli@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 10:25:01 by tpotilli@st       #+#    #+#              #
-#    Updated: 2023/02/09 15:23:57 by tpotilli@st      ###   ########.fr        #
+#    Updated: 2023/02/13 13:48:10 by tpotilli@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
+
+SRCS =	so_long.c\
+		utils/ft_strlen.c\
+		main.c\
+		windows.c\
+		ft_verif.c\
 
 FLAGS = -Wall -Werror -Wextra 
 
