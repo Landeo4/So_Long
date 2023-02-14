@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_player.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 13:03:33 by tpotilli@st       #+#    #+#             */
-/*   Updated: 2023/02/14 17:07:24 by tpotilli         ###   ########.fr       */
+/*   Created: 2023/02/14 16:56:26 by tpotilli          #+#    #+#             */
+/*   Updated: 2023/02/14 17:09:30 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include "/mnt/nfs/homes/tpotilli/Desktop/So_Long/minilibx-linux/mlx.h"
-
-typedef struct s_game
+typedef struct s_game;
 {
-	int	i;
-	int cpt;
-	int upper;
-	int lower;
-	int left;
-	int right;
-	int end;
+	i = 0;
+	cpt = 0;
+	upper = 0;
+	lower = 0;
+	left = 0;
+	right = 0;
+	end = 0;
 }	t_game;
 
-int	ft_strlen(char *s);
-int main(int argc, char **argv);
-int	ft_map_error(char *nom);
+char *ft_player(char **map)
+{
+	int i;
+	char **player;
 
-#endif
+	i = ft_position_player(player);
+		if ('w')
+			t_game->upper++;
+		if ('s')
+			t_game->lower++;
+		if ('a')
+			t_game->left++;
+		if ('d')
+			t_game->right++;
+}

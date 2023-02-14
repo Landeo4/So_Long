@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpotilli@student42.fr  <tpotilli@studen    +#+  +:+       +#+         #
+#    By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 10:25:01 by tpotilli@st       #+#    #+#              #
-#    Updated: 2023/02/13 13:48:10 by tpotilli@st      ###   ########.fr        #
+#    Updated: 2023/02/14 17:28:05 by tpotilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS =	so_long.c\
 		main.c\
 		windows.c\
 		ft_verif.c\
+		./minilibx-linux\
 
 FLAGS = -Wall -Werror -Wextra 
 
@@ -24,14 +25,14 @@ CC = CC
 
 LIB = -L ./mlx -lmlx -lXext -lX11
 
-SRC = windows.c
+%.o: %.c
+	$(CC) $(FLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 all :
 	$(NAME)
 
-$(NAME) :
-	make -C mlx
-	$(CC) $(FLAGS) -o $(NAME) $(SRC) $(LIB)
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean :
 	make clean -C mlx
