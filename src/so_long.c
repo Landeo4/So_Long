@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   windows.c                                          :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpotilli@student42.fr  <tpotilli@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 10:43:31 by tpotilli@st       #+#    #+#             */
-/*   Updated: 2023/02/09 15:28:48 by tpotilli@st      ###   ########.fr       */
+/*   Created: 2023/02/13 13:05:53 by tpotilli@st       #+#    #+#             */
+/*   Updated: 2023/02/17 10:49:15 by tpotilli@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  <mlx.h>
+#include "/home/theo/Desktop/so_long_git/include/so_long.h"
 
-int main()
+int so_long()
 {
-	void *mlx_ptr;
-	void *win_ptr;
-
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "42"); //pointeur, taille, taille, titre
-	mlx_loop(mlx_ptr);
+	
 }

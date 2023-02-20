@@ -3,44 +3,49 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpotilli@student42.fr  <tpotilli@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 10:25:01 by tpotilli@st       #+#    #+#              #
-#    Updated: 2023/02/14 17:28:05 by tpotilli         ###   ########.fr        #
+#    Updated: 2023/02/16 16:11:27 by tpotilli@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
+LIBFT = libft.a
+MLX = libmlx.a
 
-SRCS =	so_long.c\
-		utils/ft_strlen.c\
-		main.c\
-		windows.c\
-		ft_verif.c\
-		./minilibx-linux\
+LFT_PATH = ./libft/
+MLX_PATH = ./mlx/
+INC_PATH = ./include/
+SRC_PATH = ./src/
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+OBJ = $(patsubst $(SRC_PATH)%.c,%.o,$(wildcard $(SRC_PATH)*.c))
+MLX_CF = -lm -lbsd -lmlx -lXext -lX11
 
-FLAGS = -Wall -Werror -Wextra 
+all: $(NAME)
 
-CC = CC
+$(NAME): $(OBJ) $(LIBFT) $(MLX)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L$(LFT_PATH) -L$(MLX_PATH) -lft $(MLX_CF)
 
-LIB = -L ./mlx -lmlx -lXext -lX11
+$(OBJ): %.o: $(SRC_PATH)%.c
+	$(CC) $(CFLAGS) -c -I$(INC_PATH) $< -o $@
 
-%.o: %.c
-	$(CC) $(FLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+$(MLX):
+	make -C $(MLX_PATH)
 
-all :
-	$(NAME)
+$(LIBFT):
+	make -C $(LFT_PATH)
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+clean:
+	rm -f $(OBJ)
+	make -C $(MLX_PATH) clean
+	make -C $(LFT_PATH) clean
 
-clean :
-	make clean -C mlx
-
-fclean :
-	make fclean -C mlx
+fclean: clean
 	rm -f $(NAME)
+	rm -f $(LIBFT)
+	make -C $(MLX_PATH) clean
+	make -C $(LFT_PATH) fclean
 
-re :
-	fclean
-		make
+re: fclean all
